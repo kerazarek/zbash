@@ -1,0 +1,92 @@
+# export PS1='$ zss2002|\A \w >>> '
+# export PS1='$ zss2002⎡\A⎤ \w ▷▷▷ '
+
+export PS1="\[$(tput sgr0)\]\
+\[$(tput setab 5)\]\
+\[$(tput setaf 1)\]\
+{\h}\
+\[$(tput sgr0)\]\
+ \
+\[$(tput bold)\]\
+\[$(tput setaf 3)\]\
+$(date '+%y%m%d_%H%M')\
+\[$(tput sgr0)\]\
+ \
+\[$(tput setaf 3)\]\
+\w\
+\[$(tput sgr0)\]\
+ \
+\[$(tput setaf 2)\]\
+[\!]\
+\[$(tput bold)\]\
+>\
+\[$(tput sgr0)\]\[$(tput setaf 6)\] "
+
+
+#~~~~
+
+alias edp='nano ~/.zbash'
+alias scp='source ~/.bashrc'
+alias b='cd -'
+alias ..='cd ..'
+alias u='cd ..'
+alias uu='cd ../..'
+
+alias mv='mv -i'
+
+alias ls='ls -Gh'
+alias l='ls -1t'
+# alias l1='ls -1'
+alias ll='ls -l'
+alias la='ls -a'
+alias lt='ls -t'
+
+alias rm='rm -i'
+
+alias du='du -h'
+
+alias h='history | less +G'
+
+alias zync='rsync -avzh --stats'
+
+alias c='clear'
+
+#~~~~
+
+export CLICOLOR=1
+export LSCOLORS=exfxcxdxbxegedabagacad # default
+
+#~~~~
+
+function litem() {
+	
+	ls -1t | 
+	awk -v item=$1 \
+		'BEGIN {RS='\n'};
+		{print $item}'
+
+}
+
+function l1() { litem 1; }
+function l2() { litem 2; }
+function l3() { litem 3; }
+function l4() { litem 4; }
+function l5() { litem 5; }
+
+#~~~~
+
+alias pan='ssh panda2.pbtech'
+alias pug='ssh fido'
+
+#~~~~
+
+source ~/maestro_2016-2
+
+#~~~~
+
+#/zenodotus/hwlab/store/mac2109/src/NAMD_2.11_Linux-x86_64-multicore-CUDA/namd2
+#/zenodotus/hwlab/store/mac2109/src/NAMD_2.11_Linux-x86_64-multicore/namd2
+
+alias namd2='/zenodotus/hwlab/store/mac2109/src/NAMD_2.11_Linux-x86_64-multicore/namd2'
+
+function qjobs() { qstat -u '*' ; }

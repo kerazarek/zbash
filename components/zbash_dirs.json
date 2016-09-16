@@ -1,0 +1,15 @@
+{
+	"zmunn" : {
+		"HOME" : "/Users/zarek",
+		"DROPBOX" : "$HOME/Dropbox"
+	},
+	"leo" : {
+		"HOME" : "/home/zarek"
+	},
+	"cube" : {
+		"HOME" : "/Users/zss2002"
+	},
+	"cornell_cluster" : {
+		"HOME" : "/home/zss2002"
+	}
+}
