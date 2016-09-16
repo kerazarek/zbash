@@ -15,10 +15,13 @@ case $(uname -n) in
 		;;
 	mac178101.med.cornell.edu)
 		COMP=cube
+		temp=/Users/zss2002/Dropbox/zbash/temps/zbash_temp_cube.sh
+		source $temp
 		;;
-
-
-
+	*)
+		COMP=unknown
+		echo "!!! unknown COMP \`\`$(uname -n)''"
+		;;
 esac
 
 export COMP OS
