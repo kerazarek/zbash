@@ -2,6 +2,14 @@
 
 source /Users/zss2002/Dropbox/zbash/zbash_master.sh
 
+function jqify() {
+	eval $(echo $@) |
+	sed 's/'\''/\"/g' |
+	sed 's/None/null/g' |
+	sed 's/True/true/g' |
+	sed 's/False/false/g'
+}
+
 
 
 
