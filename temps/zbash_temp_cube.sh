@@ -221,6 +221,10 @@ function zynccls() {
 	zync zss2002@pascal.med.cornell.edu:~/ /Users/zss2002/Documents/cluster_sync/ ;
 }
 
+function zynczb() {
+	zync /Users/zss2002/Dropbox/zbash/ zss2002@pascal.med.cornell.edu:~/.zbash/ ;
+}
+
 #  %a the remote IP address
 #  %b the number of bytes actually transferred
 #  %B the permission bits of the file (e.g. rwxrwxrwt)
@@ -420,10 +424,10 @@ alias cgmpost='/Users/zss2002/Documents/charmmGUI/cg_memb_160829/cgm_post.sh'
 
 cp ~/.bashrc ~/Dropbox/zbash/cube/bashrc
 # cp ~/Documents/zbash_profile.sh ~/Dropbox/zbash/cube/zbash_profile.sh
-cp ~/Documents/cluster_sync/.zbash ~/Dropbox/zbash/cluster/zbash
+# cp ~/Documents/cluster_sync/.zbash ~/Dropbox/zbash/cluster/zbash
+cp ~/Documents/cluster_sync/.zbash/temps/zbash_temp_cluster.sh ~/Dropbox/zbash/temps/zbash_temp_cluster.sh
 
-
-
+alias snamd='cd /Users/zss2002/Documents/namd/sert_5ht_ifd'
 
 
 
