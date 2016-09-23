@@ -337,7 +337,7 @@ export HISTTIMEFORMAT='%b %d %I:%M %p '
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="history:pwd:exit:df:du:ll:ls"
 # Grep Options
-export GREP_OPTIONS="--color=auto"
+# export GREP_OPTIONS="--color=auto"
 # Personal Directories
 export apps='/Applications'
 export lib='/Library'
