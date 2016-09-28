@@ -2,7 +2,6 @@
 
 export SCHRODINGER='/opt/schrodinger/suites2014-4/'
 
-source /Users/zss2002/Dropbox/zbash/cube/zbash_profile.sh
 
 ################################################################################
 
@@ -16,42 +15,9 @@ source /Users/zss2002/Dropbox/zbash/cube/zbash_profile.sh
 
 # BASICS
 
-tabs -4
 
-alias edp='nano /Users/zss2002/Dropbox/zbash/temps/zbash_temp_cube.sh'
-alias scp='source /Users/zss2002/.bashrc'
-alias b='cd -'
-alias ..='cd ..'
-alias u='cd ..'
-alias uu='cd ../..'
 
-alias mv='mv -i'
 
-alias ls='ls -Gh'
-
-# alias l1='ls -1'
-alias ll='ls -l'
-alias la='ls -a'
-alias lt='ls -t'
-alias lh='ls -1t | head'
-
-alias rm='rm -i'
-
-alias du='du -h'
-function zdu {
-	du -kc ./* |
-	sort -n |
-	awk '{printf "%'"'"'15d B - %s\n", $1, $2}'
-}
-function zdus {
-	du -ksc ./* |
-	sort -n |
-	awk '{printf "%'"'"'15d B - %s\n", $1, $2}'
-}
-
-alias h='history | less +G'
-
-alias c='clear'
 
 export docs='/Users/zss2002/Documents'
 export de='/Users/zss2002/Desktop'
@@ -247,30 +213,6 @@ function zynczb() {
 
 ################################################################################
 
-function litem() {
-	ls -1t |
-	awk -v item=$1 'BEGIN {RS='\n'}; {print $item};'
-}
-
-function li() { litem $1; }
-
-function l() {
-
-	if ! test $1; then
-		ls -1t
-	elif echo $1 | grep -Eq '^\d+$'; then
-		litem $1
-	else
-		ls -1Gt $1
-	fi
-
-}
-
-function l1() { litem 1 ; }
-function l2() { litem 2 ; }
-function l3() { litem 3 ; }
-function l4() { litem 4 ; }
-function l5() { litem 5 ; }
 
 
 ################################################################################
@@ -338,40 +280,7 @@ function cleanup_time() {
 
 ################################################################################
 
-export CLICOLOR=1
-export LSCOLORS=exfxcxdxbxegedabagacad # default
-# export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# Below from http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
-	# a black
-	# b red
-	# c green
-	# d brown
-	# e blue
-	# f magenta
-	# g cyan
-	# h light grey
-	# A bold black, usually shows up as dark grey
-	# B bold red
-	# C bold green
-	# D bold brown, usually shows up as yellow
-	# E bold blue
-	# F bold magenta
-	# G bold cyan
-	# H bold light grey; looks like bright white
-	# x default foreground or background
-
-	# 1. directory
-	# 2. symbolic link
-	# 3. socket
-	# 4. pipe
-	# 5. executable
-	# 6. block special
-	# 7. character special
-	# 8. executable with setuid bit set
-	# 9. executable with setgid bit set
-	# 10. directory writable to others, with sticky bit
-	# 11. directory writable to others, without sticky bit
 
 ################################################################################
 
@@ -395,7 +304,6 @@ export VMDFILECHOOSER
 # PATH
 
 export PATH="$PATH:/Applications/NAMD_2.11_MacOSX-x86_64-multicore"
-export PATH="$PATH:/Applications/solvate_1.0"
 
 ################################################################################
 

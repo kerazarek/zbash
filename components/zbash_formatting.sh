@@ -166,3 +166,7 @@ while getopts ":pcbuUsSo:g:t:nvh" OPTION; do
 	esac
 done
 
+
+function clearform() {
+	echo -n $(echo $(form -c) | sed -e 's/\\\[//' -e 's/\\\]//')
+}
