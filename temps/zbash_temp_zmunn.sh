@@ -658,7 +658,13 @@ function vzync() {
 
 
 
-
+function crun() {
+	infile=$1
+	outfile=${infile/.c/.o}
+	clang $infile -o $outfile
+	chmod +x $outfile
+	./$outfile
+}
 
 
 

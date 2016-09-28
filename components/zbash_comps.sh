@@ -53,11 +53,11 @@ case $(uname -n) in
 		;;
 	node[0-9][0-9][0-9].pug.pbtech)
 		COMP=cornell_fido_node
-		cornell_cluster_temp
+# 		cornell_cluster_temp
 		;;
 	node[0-9][0-9][0-9].panda)
 		COMP=cornell_panda_node
-		cornell_cluster_temp
+# 		cornell_cluster_temp
 		;;
 	*)
 		COMP=unknown
