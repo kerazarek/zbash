@@ -168,5 +168,5 @@ done
 
 
 function clearform() {
-	echo -n $(echo $(form -c) | sed -e 's/\\\[//' -e 's/\\\]//')
+	echo -n $(echo $(form -c) | sed -e 's/\\\[//' -e 's/\\\]//') ;
 }

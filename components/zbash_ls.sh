@@ -19,7 +19,7 @@ alias lr='ls -Gur'
 
 # Item grabbing
 function litem() {
-	ls -1t |
+	/bin/ls -1t |
 	awk -v item=$1 'BEGIN {RS='\n'}; {print $item};'
 }
 function li() { litem $1; }
