@@ -40,6 +40,26 @@ function l3() { litem 3 ; }
 function l4() { litem 4 ; }
 function l5() { litem 5 ; }
 
+function less1() { less `l1`; }
+function less2() { less `l2`; }
+function less3() { less `l3`; }
+function less4() { less `l4`; }
+function less5() { less `l5`; }
+
+function lessf1() { less +F `l1`; }
+function lessf2() { less +F `l2`; }
+function lessf3() { less +F `l3`; }
+function lessf4() { less +F `l4`; }
+function lessf5() { less +F `l5`; }
+
+function cd1() { cd `l1`; }
+function cd2() { cd `l2`; }
+function cd3() { cd `l3`; }
+function cd4() { cd `l4`; }
+function cd5() { cd `l5`; }
+
+function j() { ls | grep "$1" | grep ".out" ; }
+lj() { less +S `j $1` ; }
 
 # Colors!
 export CLICOLOR=1
@@ -56,6 +76,8 @@ ag\
 ac\
 ad\
 "
+
+
 
 ################################################################################
 

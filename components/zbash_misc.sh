@@ -7,7 +7,9 @@
   #
 
 # Terminal
-tabs -4
+if uname -s | grep -q 'Darwin'; then
+	tabs -4
+fi
 alias c='clear'
 
 # Interactive function
