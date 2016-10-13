@@ -9,52 +9,44 @@
 
 ### Which computer?
 
-export OS=`uname -s`
-export OS_RELEASE=`uname -r`
-export OS_VERSION=`uname -v`
-export NODE=`uname -n`
-
-case $HOSTNAME in
-	"zmunn.local")
-		COMP="zmunn"
-		ZHOME="/Users/zarek"
-		ZBASH_DIR="/Users/zarek/Dropbox/zbash"
-		;;
-	"zarek-Parallels-Virtual-Platform")
-		COMP="parallels"
-		ZHOME="/media/psf/Home"
-		ZBASH_DIR="$ZHOME/Dropbox/zbash"
-		;;
-	"pascal.med.cornell.edu")
-		COMP="cornell-pascal"
-		;;
-	"leo")
-		COMP="leo"
-		ZBASH_DIR="$HOME/Dropbox/zbash"
-		;;
-	*)
-		COMP="unknown"
-		echo "!!! Couldn't figure out what computer this is"
-		;;
-esac
-
-export COMP ZHOME ZBASH_DIR
-
-case $OS in
-	"Linux")
-		alias open='nautilus'
-		;;
-	"Darwin")
-		;;
-esac
+# export OS=`uname -s`
+# export OS_RELEASE=`uname -r`
+# export OS_VERSION=`uname -v`
+# export NODE=`uname -n`
+#
+# case $HOSTNAME in
+# 	"zmunn.local")
+# 		COMP="zmunn"
+# 		ZHOME="/Users/zarek"
+# 		ZBASH_DIR="/Users/zarek/Dropbox/zbash"
+# 		;;
+# 	"zarek-Parallels-Virtual-Platform")
+# 		COMP="parallels"
+# 		ZHOME="/media/psf/Home"
+# 		ZBASH_DIR="$ZHOME/Dropbox/zbash"
+# 		;;
+# 	"pascal.med.cornell.edu")
+# 		COMP="cornell-pascal"
+# 		;;
+# 	"leo")
+# 		COMP="leo"
+# 		ZBASH_DIR="$HOME/Dropbox/zbash"
+# 		;;
+# 	*)
+# 		COMP="unknown"
+# 		echo "!!! Couldn't figure out what computer this is"
+# 		;;
+# esac
+#
+# export COMP ZHOME ZBASH_DIR
 
 ### Formatting
-TERM=xterm-256color
-function form() {
-	# zbash_formatting="$ZHOME/.zbash_formatting.sh"
-	zbash_formatting="$ZBASH_DIR/components/zbash_formatting.sh"
-	echo -en $($zbash_formatting $@);
-}
+# TERM=xterm-256color
+# function form() {
+# 	# zbash_formatting="$ZHOME/.zbash_formatting.sh"
+# 	zbash_formatting="$ZBASH_DIR/components/zbash_formatting.sh"
+# 	echo -en $($zbash_formatting $@);
+# }
 
 ### PROMPT
 
@@ -96,11 +88,11 @@ alias hi='echo hi'
 alias hello='echo "Hello world"'
 # Editing Profile
 # alias edprof='nano $ZHOME/.zbash_profile.sh'
-alias edprof='nano /Users/zarek/Dropbox/zbash/temps/zbash_temp_zmunn.sh'
+alias edprof='nano /Users/zarek/.zbash/temps/zbash_temp_zmunn.sh'
 alias edp='edprof'
 alias scprof='source ~/.bash_profile'
 alias scp='scprof'
-alias bedp='bbedit /Users/zarek/Dropbox/zbash/temps/zbash_temp_zmunn.sh'
+alias bedp='bbedit /Users/zarek/.zbash/temps/zbash_temp_zmunn.sh'
 
 
 # Grep Options

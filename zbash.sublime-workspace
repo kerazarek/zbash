@@ -7,14 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/zarek/.config/sublime-text-3/Packages/Themes/zDark.tmTheme",
-			"settings":
-			{
-				"buffer_size": 12460,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -46,14 +38,20 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/zarek/Dropbox/zbash"
+	],
 	"file_history":
 	[
-		"/home/zarek/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/zarek/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+		"/Users/zarek/Dropbox/zbash/zbash.sublime-project",
+		"/Users/zarek/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/zarek/Dropbox/zbash/zbash.sublime-workspace",
+		"/Users/zarek/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 0.0
 	},
 	"find_in_files":
 	{
@@ -67,7 +65,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"color"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -85,44 +82,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/zarek/.config/sublime-text-3/Packages/Themes/zDark.tmTheme",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12460,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1832,
-								1838
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3915.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 0.0
 	},
 	"input":
 	{
@@ -159,7 +126,7 @@
 	"project": "zbash.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 0.0
 	},
 	"save_all_on_build": true,
 	"select_file":

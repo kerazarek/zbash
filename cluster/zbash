@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export PATH=/home/zss2002/bin:$PATH
 export R_HOME=/home/zss2002/bin/R-3.2.5

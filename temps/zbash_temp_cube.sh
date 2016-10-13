@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export SCHRODINGER='/opt/schrodinger/suites2014-4/'
 
@@ -188,7 +188,7 @@ function zynccls() {
 }
 
 function zynczb() {
-	zync /Users/zss2002/Dropbox/zbash/ zss2002@pascal.med.cornell.edu:~/.zbash/ ;
+	zync /Users/zss2002/.zbash/ zss2002@pascal.med.cornell.edu:~/.zbash/ ;
 }
 
 #  %a the remote IP address
@@ -291,10 +291,6 @@ alias o='open'
 alias bb='bbedit'
 alias bedp='bb /Users/zss2002/.bashrc'
 
-# alias vmd='open /Applications/VMD\ 1.9.2.app'
-alias vmd='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86'
-alias vmdt='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86 -dispdev text -eofexit'
-# alias vmdt='vmd -dispdev text -eofexit'
 
 VMDFILECHOOSER=FLTK
 export VMDFILECHOOSER
@@ -330,10 +326,10 @@ alias cgmpost='/Users/zss2002/Documents/charmmGUI/cg_memb_160829/cgm_post.sh'
 
 ################################################################################
 
-cp ~/.bashrc ~/Dropbox/zbash/cube/bashrc
-# cp ~/Documents/zbash_profile.sh ~/Dropbox/zbash/cube/zbash_profile.sh
-# cp ~/Documents/cluster_sync/.zbash ~/Dropbox/zbash/cluster/zbash
-cp ~/Documents/cluster_sync/.zbash/temps/zbash_temp_cluster.sh ~/Dropbox/zbash/temps/zbash_temp_cluster.sh
+# cp ~/.bashrc ~/.zbash/cube/bashrc
+# cp ~/Documents/zbash_profile.sh ~/.zbash/cube/zbash_profile.sh
+# cp ~/Documents/cluster_sync/.zbash ~/.zbash/cluster/zbash
+cp ~/Documents/cluster_sync/.zbash/temps/zbash_temp_cluster.sh ~/.zbash/temps/zbash_temp_cluster.sh
 
 alias snamd='cd /Users/zss2002/Documents/namd/sert_5ht_ifd'
 

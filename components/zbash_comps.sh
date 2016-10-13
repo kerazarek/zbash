@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
   #
@@ -7,33 +7,37 @@
   #
 
 function cornell_cluster_temp() {
-	temp=/home/zss2002/.zbash/temps/zbash_temp_cluster.sh
-	source $temp
-	alias edp="nano $temp"
-	alias scp="source ~/.bashrc"
+	ZBASH_DIR=/home/zss2002/.zbash
+	ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_cluster.sh
+	source $ZBASH_TEMP
+	alias edp='nano $ZBASH_TEMP'
+	alias srcp='source ~/.bashrc'
 }
 
 case $(uname -n) in
 	zmunn.local)
 		COMP=zmunn
-		temp=/Users/zarek/Dropbox/zbash/temps/zbash_temp_zmunn.sh
-		source $temp
-		alias edp="nano $temp"
-		alias scp="source ~/.bash_profile"
+		ZBASH_DIR=/Users/zarek/.zbash
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_zmunn.sh
+		source $ZBASH_TEMP
+		alias edp='nano $ZBASH_TEMP'
+		alias srcp='source ~/.bash_profile'
 		;;
 	leo)
 		COMP=leo
-		temp=/home/zarek/Dropbox/zbash/temps/zbash_temp_zmunn.sh
-		source $temp
-		alias edp="nano $temp"
-		alias scp="source ~/.bashrc"
+		ZBASH_DIR=/home/zarek/.zbash
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_zmunn.sh
+		source $ZBASH_TEMP
+		alias edp='nano $ZBASH_TEMP'
+		alias srcp='source ~/.bashrc'
 		;;
 	mac178101.med.cornell.edu)
 		COMP=cube
-		temp=/Users/zss2002/Dropbox/zbash/temps/zbash_temp_cube.sh
-		source $temp
-		alias edp="nano $temp"
-		alias scp="source ~/.bashrc"
+		ZBASH_DIR=/Users/zss2002/.zbash
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_cube.sh
+		source $ZBASH_TEMP
+		alias edp='nano $ZBASH_TEMP'
+		alias srcp='source ~/.bashrc'
 		;;
 	pascal.med.cornell.edu)
 		COMP=cornell_pascal
@@ -65,4 +69,4 @@ case $(uname -n) in
 		;;
 esac
 
-export COMP OS
+export OS COMP ZBASH_DIR ZBASH_TEMP

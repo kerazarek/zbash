@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
   #
@@ -18,3 +18,5 @@ $(form -p -c) \
 $(form -p -o51)\
 "
 fi
+
+echo $PS1
