@@ -65,3 +65,15 @@ function typeof() {
 	echo $type
 
 }
+
+# Get the length of the longest item in a list
+function max_list_len() {
+	list="$@"
+	len=0
+	for item in $list; do
+		if test ${#item} -gt $len; then
+			len=${#item}
+		fi
+	done
+	echo $len
+}

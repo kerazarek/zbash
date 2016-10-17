@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-TERM=xterm-256color
-function form() {
-	# zbash_formatting="$ZHOME/.zbash_formatting.sh"
-	zbash_formatting="$ZBASH_DIR/components/zbash_formatting.sh"
-	echo -en $($zbash_formatting $@);
-}
-
 function verbose_message() {
 
 	echo "~~~~~v~e~r~b~o~s~e~~~m~o~d~e~~~~~"
@@ -63,49 +56,54 @@ while getopts ":pcbuUsSo:g:t:nvh" OPTION; do
 		p)
 			DESCRIPTION="PS1 formatting (for tput)"
 # 			export PS1_FORMATTING=true
-			output
+# 			output
+			;;
+		P)
+			DESCRIPTION="NOT PS1 formatting (for tput)"
+			export PS1_FORMATTING=false
+# 			output | sed -e 's/\\\[//' -e 's/\\\]//'
 			;;
 		c)
 			DESCRIPTION="clear formatting (tput sgr0)"
 			FORMATTING=$(tput sgr0)
 # 			echo -en $(tput sgr0)
 			echo -en "\\[$(tput sgr0)\\]"
-			output
+# 			output
 			;;
 		b)
 			DESCRIPTION="format bold (tput bold)"
 			FORMATTING=$(tput bold)
 # 			echo -en $(tput bold)
 			echo -en "\\[$(tput bold)\\]"
-			output
+# 			output
 			;;
 		u)
 			DESCRIPTION="underline (tput smul)"
 			FORMATTING=$(tput smul)
 # 			echo -en $(tput smul)
 			echo -en "\\[$(tput smul)\\]"
-			output
+# 			output
 			;;
 		U)
 			DESCRIPTION="exit underline mode (tput rsmul)"
 			FORMATTING=$(tput rmul)
 # 			echo -en $(tput rmul)
 			echo -en "\\[$(tput rmul)\\]"
-			output
+# 			output
 			;;
 		s)
 			DESCRIPTION="standout (reversed) mode (tput smso)"
 			FORMATTING=$(tput smso);
 # 			echo -en $(tput smso)
 			echo -en "\\[$(tput smso)\\]"
-			output
+# 			output
 			;;
 		S)
 			DESCRIPTION="exit standout mode (tput rmso)"
 			FORMATTING=$(tput rmso);
 # 			echo -en $(tput rmso)
 			echo -en "\\[$(tput rmso)\\]"
-			output
+# 			output
 			;;
 		o)
 			DESCRIPTION="foreground coloring (8 bit)"
@@ -113,7 +111,7 @@ while getopts ":pcbuUsSo:g:t:nvh" OPTION; do
 			FORMATTING="\\[\\e[38;5;${color}m\\]"
 # 			echo -en "\\e[38;5;${color}m"
 			echo -en "\\[\\e[38;5;${color}m\\]"
-			output
+# 			output
 			outputtt
 			;;
 		g)
@@ -122,31 +120,31 @@ while getopts ":pcbuUsSo:g:t:nvh" OPTION; do
 			FORMATTING="\\e[48;5;${color}m"
 # 			echo -en "\\e[48;5;${color}m"
 			echo -en "\\[\\e[48;5;${color}m\\]"
-			output
+# 			output
 			;;
 		t)
 			DESCRIPTION="text to format"
 			text=$OPTARG
 			FORMATTING=$(printf "%s" "$text")
 			printf "%s" "$text"
-			output
+# 			output
 			;;
 		n)
 			DESCRIPTION="new line"
 			text="\\n"
 			FORMATTING=$(printf "%s" "$text")
 			printf "%s" "$text"
-			output
+# 			output
 			;;
 		v)
 			DESCRIPTION="increased verbosity"
 			verbose=true
 # 			printf "\n%s\n" "~~~ zbash_formatting.sh: Verbose Mode ~~~"
-			output
+# # 			output
 			;;
 		h)
 			DESCRIPTION="help message"
-			output
+# 			output
 			;;
 		\?)
 			DESCRIPTION="Shortcuts for coloring or text"
@@ -161,12 +159,7 @@ while getopts ":pcbuUsSo:g:t:nvh" OPTION; do
 				printf "%s" "$text"
 				echo -en "\\[$(printf "%s" "$text")\\]"
 			fi
-			output
+# 			output
 			;;
 	esac
 done
-
-
-function clearform() {
-	echo -n $(echo $(form -c) | sed -e 's/\\\[//' -e 's/\\\]//') ;
-}

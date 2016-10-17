@@ -2,7 +2,7 @@
 
    #######################
   ###########################
- #####   zbash_master.sh   #####
+ #####   zbash-master.sh   #####
     ###########################
        #######################
 
@@ -10,28 +10,32 @@ echo $BASH_VERSION
 
 ### unifying script joining zbash parts
 timestamp=$(date "+%y%m%d_%H%M%S")
+if test ! -d ~/logs; then mkdir ~/logs; fi
 out_log=~/logs/zbash_source.$timestamp.out.log
 err_log=~/logs/zbash_source.$timestamp.err.log
 
 export ZBASH_DIR=~/.zbash
 component_shs="
-	zbash_comps.sh
-	zbash_app_aliases.sh
-	zbash_cd.sh
-	zbash_cluster.sh
-	zbash_datetime.sh
-	zbash_defunct.sh
-	zbash_dirs.sh
-	zbash_du.sh
-	zbash_formatting.sh
-	zbash_locations.sh
-	zbash_ls.sh
-	zbash_misc.sh
-	zbash_prompt.sh
-	zbash_rsync.sh
-	zbash_textexpander.sh
-	zbash_ssh.sh
+	zbash-comps.sh
+	zbash-app-aliases.sh
+	zbash-cd.sh
+	zbash-cluster.sh
+	zbash-datetime.sh
+	zbash-defunct.sh
+	zbash-dirs.sh
+	zbash-du.sh
+	zbash-locations.sh
+	zbash-ls.sh
+	zbash-misc.sh
+	zbash-prompt.sh
+	zbash-rsync.sh
+	zbash-ssh.sh
+	zbash-text.sh
+	zbash-textexpander.sh
 "
+
+
+
 sh_i=1
 n_scripts=$(echo $component_shs | wc -w)
 printf ">>> sourcing %s scripts...\n\t"
@@ -39,8 +43,8 @@ line_width=4
 for f in $component_shs; do
 	# echo ">>> sourcing \`\`$f''"
 	# printf "(%d/%d) " $sh_i $n_scripts
-	# printf "%-20s " "[$sh_i: $(echo $f | perl -pe 's/^zbash_(.*?)\.sh$/\1/;')]"
-	script_stem=$(echo $f | perl -pe 's/^zbash_(.*?)\.sh$/\1/;')
+	# printf "%-20s " "[$sh_i: $(echo $f | perl -pe 's/^zbash-(.*?)\.sh$/\1/;')]"
+	script_stem=$(echo $f | perl -pe 's/^zbash-(.*?)\.sh$/\1/;')
 	printf "(%d) %s" $sh_i $script_stem
 	if test $sh_i -lt $n_scripts; then
 		printf ", "
@@ -59,8 +63,19 @@ for f in $component_shs; do
 	((sh_i++))
 done
 
-# gzip $out_log
-# gzip $err_log
+function srcp {
+	case $(uname -s) in
+		"Darwin")
+			source ~/.bash_profile
+			;;
+		"Linux")
+			source ~/.bashrc
+			;;
+	esac
+}
+
+gzip $out_log
+gzip $err_log
 
 
 # echo ">>> out log at $out_log"

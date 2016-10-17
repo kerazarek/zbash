@@ -14,4 +14,7 @@ if uname -s | grep -q 'Darwin'; then
 	alias vmd='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86'
 	alias vmdt='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86 -dispdev text -eofexit'
 
+	alias bb='bbedit'
+	alias bbc='bbedit -c'
+
 fi

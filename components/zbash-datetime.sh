@@ -30,3 +30,5 @@ alias dtm='dt 10'
 alias d10='dt 10'
 alias dtms='dt 12'
 alias d12='dt 12'
+
+function timestamp() { date "+%y%m%d_%H%M" ; }

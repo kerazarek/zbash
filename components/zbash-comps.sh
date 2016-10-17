@@ -8,7 +8,7 @@
 
 function cornell_cluster_temp() {
 	ZBASH_DIR=/home/zss2002/.zbash
-	ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_cluster.sh
+	ZBASH_TEMP=$ZBASH_DIR/temps/zbash-temp-cluster.sh
 	source $ZBASH_TEMP
 	alias edp='nano $ZBASH_TEMP'
 	alias srcp='source ~/.bashrc'
@@ -18,7 +18,7 @@ case $(uname -n) in
 	zmunn.local)
 		COMP=zmunn
 		ZBASH_DIR=/Users/zarek/.zbash
-		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_zmunn.sh
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash-temp-zmunn.sh
 		source $ZBASH_TEMP
 		alias edp='nano $ZBASH_TEMP'
 		alias srcp='source ~/.bash_profile'
@@ -26,7 +26,7 @@ case $(uname -n) in
 	leo)
 		COMP=leo
 		ZBASH_DIR=/home/zarek/.zbash
-		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_zmunn.sh
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash-temp-zmunn.sh
 		source $ZBASH_TEMP
 		alias edp='nano $ZBASH_TEMP'
 		alias srcp='source ~/.bashrc'
@@ -34,7 +34,7 @@ case $(uname -n) in
 	mac178101.med.cornell.edu)
 		COMP=cube
 		ZBASH_DIR=/Users/zss2002/.zbash
-		ZBASH_TEMP=$ZBASH_DIR/temps/zbash_temp_cube.sh
+		ZBASH_TEMP=$ZBASH_DIR/temps/zbash-temp-cube.sh
 		source $ZBASH_TEMP
 		alias edp='nano $ZBASH_TEMP'
 		alias srcp='source ~/.bashrc'
