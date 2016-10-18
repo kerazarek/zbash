@@ -12,9 +12,9 @@
 if uname -s | grep -q "Darwin"; then
 	home_dir=$HOME
 	osacompile \
-		-o $ZBASH_DIR/components/set-textexpander-homedir.scpt \
-		$ZBASH_DIR/components/set-textexpander-homedir.applescript
+		-o $ZBASH_DIR/scripts/set-textexpander-homedir.scpt \
+		$ZBASH_DIR/scripts/set-textexpander-homedir.applescript
 	osascript \
-		$ZBASH_DIR/components/set-textexpander-homedir.scpt \
+		$ZBASH_DIR/scripts/set-textexpander-homedir.scpt \
 		$home_dir
 fi

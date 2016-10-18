@@ -40,11 +40,11 @@ function l3() { litem 3 ; }
 function l4() { litem 4 ; }
 function l5() { litem 5 ; }
 
-function less1() { less `l1`; }
-function less2() { less `l2`; }
-function less3() { less `l3`; }
-function less4() { less `l4`; }
-function less5() { less `l5`; }
+function less1() { less +G `l1`; }
+function less2() { less +G `l2`; }
+function less3() { less +G `l3`; }
+function less4() { less +G `l4`; }
+function less5() { less +G `l5`; }
 
 function lessf1() { less +F `l1`; }
 function lessf2() { less +F `l2`; }

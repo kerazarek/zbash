@@ -27,14 +27,12 @@ component_shs="
 	zbash-locations.sh
 	zbash-ls.sh
 	zbash-misc.sh
-	zbash-prompt.sh
 	zbash-rsync.sh
 	zbash-ssh.sh
 	zbash-text.sh
 	zbash-textexpander.sh
+	zbash-prompt.sh
 "
-
-
 
 sh_i=1
 n_scripts=$(echo $component_shs | wc -w)
@@ -76,7 +74,6 @@ function srcp {
 
 gzip $out_log
 gzip $err_log
-
 
 # echo ">>> out log at $out_log"
 # echo ">>> err log at $err_log"

@@ -8,6 +8,7 @@
 
 # shell formatting script
 TERM=xterm-256color
+chmod +x "$ZBASH_DIR/scripts/form.sh"
 function form() {
 	form_script="$ZBASH_DIR/scripts/form.sh"
 	echo -en $($form_script $@);
@@ -19,10 +20,12 @@ function clearform() {
 }
 
 # python formatting script
+chmod +x "$ZBASH_DIR/scripts/pyform.py"
 function pyform() {
 	pyform_script="$ZBASH_DIR/scripts/pyform.py"
-	echo -en $($pyform_script $@);
+	$pyform_script $@
 }
 
 # convert SI numbers
+chmod +x "$ZBASH_DIR/scripts/sinum.sh"
 alias sinum='$ZBASH_DIR/scripts/sinum.sh'

@@ -77,3 +77,13 @@ function max_list_len() {
 	done
 	echo $len
 }
+
+# ztar - my special lil version of tar for compressing directories
+function ztar() {
+	$ZBASH_DIR/scripts/ztar.sh $@
+}
+
+# bak.sh
+function bak() {
+	$ZBASH_DIR/scripts/bak.sh $@
+}

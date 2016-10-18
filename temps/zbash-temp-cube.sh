@@ -310,8 +310,6 @@ alias pasc='ssh zss2002@pascal.med.cornell.edu'
 alias descartes='ssh zss2002@descartes.med.cornell.edu'
 alias scumaestro='ssh -X zss2002@scu-maestro.med.cornell.edu'
 
-
-
 #
 
 export SCHRODINGER='/opt/schrodinger/suites2016-2'
