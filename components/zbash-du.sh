@@ -10,6 +10,13 @@
 alias df='df -h'
 alias du='du -h'
 
+# python du equivalent
+chmod +x "$ZBASH_DIR/scripts/pydu.py"
+function pydu() {
+	pydu_script="$ZBASH_DIR/scripts/pydu.py"
+	$pydu_script $@
+}
+
 # z's pretty du
 function zdu() {
 	tmp=./zdu.$(date "+%s").tmp

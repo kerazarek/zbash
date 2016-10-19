@@ -29,3 +29,7 @@ function pyform() {
 # convert SI numbers
 chmod +x "$ZBASH_DIR/scripts/sinum.sh"
 alias sinum='$ZBASH_DIR/scripts/sinum.sh'
+
+# convert SI numbers (python version)
+chmod +x "$ZBASH_DIR/scripts/pynum.py"
+alias pynum='$ZBASH_DIR/scripts/pynum.py'
