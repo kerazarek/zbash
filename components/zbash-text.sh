@@ -23,7 +23,11 @@ function clearform() {
 chmod +x "$ZBASH_DIR/scripts/pyform.py"
 function pyform() {
 	pyform_script="$ZBASH_DIR/scripts/pyform.py"
-	$pyform_script $@
+	if (( IS_CLUSTER )); then
+		/home/zss2002/bin/anaconda3/bin/python $pyform_script $@
+	else
+		$pyform_script $@
+	fi
 }
 
 # convert SI numbers

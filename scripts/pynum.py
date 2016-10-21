@@ -46,12 +46,9 @@ si_prefixes = [
 	{'prefix_long': 'atto', 'prefix_short': 'a', 'power': -18}
 ]
 
-
 class Number:
-
 	def __str__(self):
 		return self.output
-
 
 	def __init__(self, input_number, output_format='si', unit=None, pad='', sig_sfs=1, frac_sfs=3):
 		self.input_number = input_number
@@ -61,51 +58,45 @@ class Number:
 		self.sig_sfs = sig_sfs
 		self.frac_sfs = frac_sfs
 
-		# if self.input_format is None:
-		#	self.parse_format()
-
 		self.float = float(self.input_number)
-		# print(self.float)
 		self.enot_str = "{:+e}".format(self.float)
-		# print(self.enot_str)
-		# enot_regex_str = r'^(?P<sign>+|-)(?P<sig_whole>\d)\.(?P<sig_frac>\d+)e(?P<exp_sign>+|-)(?P<exp>\d+)$'
-		enot_regex_str = r'^(?P<sig_sign>[+-])(?P<sig_whole>\d)\.(?P<sig_fractional>\d+)e(?P<exp_sign>[+-])(?P<exp>\d+)$'
-		# print(enot_regex_str)
+		enot_regex_str = r'^(?P<significand>(?P<sig_whole>[+-]?\d)\.(?P<sig_fractional>\d+))e(?P<exp>[+-]?\d+)$'
 		enot_regex = re.compile(enot_regex_str)
-		# print(enot_regex)
-		self.sig_sign = enot_regex.sub(r'\g<sig_sign>', self.enot_str)
-		# print(self.sig_sign)
+		self.significand = enot_regex.sub(r'\g<significand>', self.enot_str)
+		self.significand = float(self.significand)
 		self.sig_whole = enot_regex.sub(r'\g<sig_whole>', self.enot_str)
 		self.sig_whole = int(self.sig_whole)
-		# print(self.sig_whole)
 		self.sig_fractional = enot_regex.sub(r'\g<sig_fractional>', self.enot_str)
 		self.sig_fractional = int(self.sig_fractional)
-		# print(self.sig_fractional)
-		self.exp_sign = enot_regex.sub(r'\g<exp_sign>', self.enot_str)
-		# print(self.exp_sign)
 		self.exp = enot_regex.sub(r'\g<exp>', self.enot_str)
 		self.exp = int(self.exp)
+
+		# print(self.float)
+		# print(self.enot_str)
+		# print(self.sig_whole)
+		# print(self.sig_fractional)
 		# print(self.exp)
 
 		for s in si_prefixes:
 			power = s['power']
-			factor = ( 10 ** power )
-			if self.float >= factor:
-				self.power = power
-				self.factor = factor
+			if self.exp >= power:
+				self.si_power = power
 				self.si_prefix = s['prefix_short']
 				self.si_prefix_long = s['prefix_long']
-				self.significand = float(self.float / self.factor)
+				self.si_sig = self.float / (10 ** self.si_power)
 				break
-			else:
-				continue
 
-		if self.output_format == 'float':
+		# print(self.si_power)
+		# print(self.si_prefix)
+		# print(self.si_prefix_long)
+		# print(self.si_sig)
+
+		if self.output_format in ['f', 'fl', 'float']:
 			self.output = str(self.float)
 
-		elif self.output_format == 'scifancy':
+		elif self.output_format in ['sci', 'fancy', 'scifancy']:
 			sup_power = ''
-			for char in str(self.power):
+			for char in str(self.exp):
 				if char == '-':
 					sup_power += specchars['sup_minus']
 				else:
@@ -122,31 +113,21 @@ class Number:
 			if self.unit is not None:
 				self.output += " " + self.unit
 
-		elif self.output_format == 'si':
-			for s in si_prefixes:
-				power = s['power']
-				factor = ( 10 ** power )
-				if self.float >= factor:
-					self.power = power
-					self.factor = factor
-					self.si_prefix = s['prefix_short']
-					self.si_prefix_long = s['prefix_long']
-					self.significand = float(self.float / self.factor)
-					break
-				else:
-					continue
-
-			self.output = "{sig:{pad}{sig_sfs}.{frac_sfs}}{e}{power}".format(
-				sig = self.significand,
+		elif self.output_format in ['si', 'si_long']:
+			self.output = "{sig:{pad}{sig_sfs}.{frac_sfs}f}".format(
+				sig = self.si_sig,
 				pad = self.pad,
 				sig_sfs = self.sig_sfs,
-				frac_sfs = self.frac_sfs,
-				e = "e",
-				power = self.power
+				frac_sfs = self.frac_sfs
 			)
+
 			if self.unit is None:
 				self.unit = 'u'
-			self.output += " {}{}".format(self.si_prefix, self.unit)
+			if self.output_format == 'si_long':
+				prefix = self.si_prefix_long
+			else:
+				prefix = self.si_prefix
+			self.output += " {}{}".format(prefix, self.unit)
 
 
 
@@ -159,7 +140,7 @@ def main():
 		action='store', help='...')
 	parser.add_argument('-o', '--out-format', metavar='FMT', type=str, nargs='?', default='si',
 		action='store', help='...')
-	parser.add_argument('-u', '--unit', metavar='UNIT', type=str, nargs='?', default='u',
+	parser.add_argument('-u', '--unit', metavar='UNIT', type=str, nargs='?', default=None,
 		action='store', help='...')
 	parser.add_argument('-p', '--pad', metavar='UNIT', type=str, nargs='?', default='',
 		action='store', help='padding character (default \'\')')

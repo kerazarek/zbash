@@ -329,8 +329,6 @@ alias cgmpost='/Users/zss2002/Documents/charmmGUI/cg_memb_160829/cgm_post.sh'
 # cp ~/Documents/cluster_sync/.zbash ~/.zbash/cluster/zbash
 cp ~/Documents/cluster_sync/.zbash/temps/zbash_temp_cluster.sh ~/.zbash/temps/zbash_temp_cluster.sh
 
-alias snamd='cd /Users/zss2002/Documents/namd/sert_5ht_ifd'
-
 
 
 

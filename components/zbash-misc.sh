@@ -79,11 +79,15 @@ function max_list_len() {
 }
 
 # ztar - my special lil version of tar for compressing directories
+ztar_script=$ZBASH_DIR/scripts/ztar.sh
+[[ -x $ztar_script ]] || chmod +x $ztar_script
 function ztar() {
-	$ZBASH_DIR/scripts/ztar.sh $@
+	$ztar_script $@
 }
 
 # bak.sh
+bak_script=$ZBASH_DIR/scripts/bak.sh
+[[ -x $bak_script ]] || chmod +x $bak_script
 function bak() {
-	$ZBASH_DIR/scripts/bak.sh $@
+	$bak_script $@
 }

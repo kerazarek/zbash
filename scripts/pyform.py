@@ -398,7 +398,7 @@ def main():
 			i_str = "{:<5}".format(i_str)
 			f1 = Formatted(text=i_str, fgcolor=i, clear_before=True, clear_after=True)
 			f2 = f1.add_reversed().add_clear_after().add_clear_after()
-			f1 = f1.add_bgcolor('defaul')
+			f1 = f1.add_bgcolor('default')
 			i_per_line += 1
 			if i_per_line >= max_i_per_line:
 				print(f1, f2)

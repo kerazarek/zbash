@@ -20,15 +20,17 @@ function pydu() {
 # z's pretty du
 function zdu() {
 	tmp=./zdu.$(date "+%s").tmp
-	depth="--max-depth=0"
+	[[ $(uname -s) == 'Linux' ]] && depth_arg="--max-depth=0"
+	[[ $(uname -s) == 'Darwin' ]] && depth_arg="-d 0"
 	sort="-n"
 	for arg in "$@"; do
-		if echo $arg | grep -Eq '^-?d'; then
-			depth=$arg
-			depth=${depth/-/}
-			depth=${depth/d/}
-			depth="--max-depth=$depth"
-		elif echo $arg | grep -Eq '^-?s'; then
+		if echo $arg | grep -Eq '^-d'; then
+			depth_arg=$arg
+			depth_arg=${depth_arg/-/}
+			depth_arg=${depth_arg/d/}
+			[[ $(uname -s) == 'Linux' ]] && depth_arg="--max-depth=$depth_arg"
+			[[ $(uname -s) == 'Darwin' ]] && depth_arg="-d $depth_arg"
+		elif echo $arg | grep -Eq '^-s'; then
 			sort=$arg
 			sort=${sort/-/}
 			sort=${sort/s/}
@@ -36,22 +38,31 @@ function zdu() {
 				n) sort="-n" ;;
 				k) sort="-k 2" ;;
 			esac
+		elif [[ -d $arg ]]; then
+			query_dir="$arg"
 		fi
 	done
+	query_dir=${query_dir:-.}
+	# echo time_arg $time_arg
+	# echo depth_arg $depth_arg
+	# echo query_dir $query_dir
+	# echo tmp $tmp
 	du \
-		-b \
+		-k \
 		-c \
-		--time \
-		--time-style=+%y%m%d_%H%M%S \
-		$depth \
-		./* \
+		$time_arg \
+		$depth_arg \
+		$query_dir \
 		> $tmp
 	cat $tmp | sort $sort > $tmp.2
 	printf "%s -\t%s\t%s\n" "SIZE" "PATH" "MODTIME" > $tmp.3
+	[[ $(uname -s) == 'Linux' ]] && time_arg="--time --time-style=+%y%m%d_%H%M%S"
+	[[ $(uname -s) == 'Darwin' ]] && time_arg=""
 	while read entry; do
 		size=$(echo $entry | awk '{print $1}')
 		time=$(echo $entry | awk '{print $2}')
 		path=$(echo $entry | awk '{print $3}')
+		size=$(( size * 1000 ))
 		size=$(sinum $size B)
 		size=$(printf "%s%3s" $size)
 		echo "\"$size\"" >> $tmp.sizes
