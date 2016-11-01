@@ -52,7 +52,7 @@ if [[ $COMP =~ ^fido.* ]]; then
 	# promptfmt=$(pyform -c 0 -f 46 -b def -n -t )
 elif [[ $COMP == 'pascal' ]]; then
 	compfmt=$(pyform -c 0 -o -f 22 -b 48 -n -t )
-	datefmt=$(pyform -c 0 -f 51 -b def -n -t )
+	datefmt=$(pyform -c 0 -f 27 -b def -n -t )
 	cwdfmt=$(pyform -c 0 -f 129 -b def -n -t )
 	histfmt=$(pyform -c 0 -f 124 -b def -n -t )
 	arrowfmt=$(pyform -c 0 -o -f 11 -b def -n -t )

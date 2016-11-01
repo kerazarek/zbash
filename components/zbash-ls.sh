@@ -46,6 +46,8 @@ function less3() { less +G `l3`; }
 function less4() { less +G `l4`; }
 function less5() { less +G `l5`; }
 
+lessf() { less +F $1 ; }
+
 function lessf1() { less +F `l1`; }
 function lessf2() { less +F `l2`; }
 function lessf3() { less +F `l3`; }
@@ -60,6 +62,9 @@ function cd5() { cd `l5`; }
 
 function j() { ls | grep "$1" | grep ".out" ; }
 lj() { less +S `j $1` ; }
+
+sls() { /bin/ls -t | grep $1 | awk 'BEGIN{RS='\n'}; {print $1}' ; }
+lessls() { less `sls $1` ; }
 
 # Colors!
 export CLICOLOR=1
