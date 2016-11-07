@@ -78,4 +78,6 @@ case $(uname -n) in
 		;;
 esac
 
+alias srczb='source $ZBASH_DIR/zbash-master.sh'
+
 export OS COMP ZBASH_DIR ZBASH_TEMP IS_CLUSTER

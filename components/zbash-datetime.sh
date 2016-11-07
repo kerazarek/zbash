@@ -10,7 +10,7 @@ function dt() {
 	case $1 in
 		""|6|d6|dt|d) dt_fmt="%y%m%d" ;;
 		8|d8) dt_fmt="%Y%m%d" ;;
-		10|dtm|dm|d10) dt_fmt="%Y%m%d_%H%M" ;;
+		10|dtm|dm|d10|_) dt_fmt="%Y%m%d_%H%M" ;;
 		12|dtms|dms|d12) dt_fmt="%Y%m%d_%H%M%S" ;;
 		t|tm|t4|tm4) dt_fmt="%H%M" ;;
 		ts|tms|t6|tm6) dt_fmt="%H%M%S" ;;
